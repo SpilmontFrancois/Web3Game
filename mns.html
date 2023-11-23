@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>[APPLEBY]Whack-a-Mole</title>
+	<meta name="description" content="Open source tapping game built with Javascript"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/RollDownList.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified ContextMenu -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
+
+	<link href="style/style.css" rel="stylesheet">
+	<link href="all.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/mantle-glyph.png">
+	<link rel="icon" type="image/png" href="./images/mantle-glyph.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="./images/mantle-glyph.png" sizes="16x16">
+	<meta name="theme-color" content="#0b1d31">
+
+	<!-- OG Details -->
+	<meta property="og:title" content="Whack-a-Mole" />
+	<meta property="og:description" content="Tapping game built with Javascript and Built on Mantle Blockchain" />
+	<meta property="og:site_name" content="Whack-a-Mole - Tapping game built with Javascript and Built on Mantle Blockchain" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://mantleblockchain.com/" />
+	<meta property="og:image" content="https://www.mantleblockchain.com/hubfs/ms-icon-310x310.png" />
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3416596-20"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-3416596-20');
+	</script>
+
+</head>
+<body ontouchstart="">
+
+	<div class="admin-cp" style="display:none;">
+		<button class="admin-cp-button" type="button" name="button">Hide / Show Panel</button>
+		<div class="admin-cp-items hidden">
+			<label class="vzbltyLabel" for="splashPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="splashPageToggle">Splash Page
+			</label>
+			<label class="vzbltyLabel" for="gameMenuPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="gameMenuPageToggle" checked="checked">Game Menu Page
+			</label>
+			<label class="vzbltyLabel" for="aboutPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="aboutPageToggle">About Page
+			</label>
+			<label class="vzbltyLabel" for="highScorePageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="highScorePageToggle">High Score Page
+			</label>
+			<label class="vzbltyLabel" for="tutorialPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="tutorialPageToggle">Tutorial Page
+			</label>
+			<label class="vzbltyLabel" for="playDelayPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="playDelayPageToggle">PLay Delay Page
+			</label>
+
+			<label class="vzbltyLabel" for="playAreaPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="playAreaPageToggle">PLay Area Page
+			</label>
+			<label class="vzbltyLabel" for="pauseMenuPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="pauseMenuPageToggle">Pause Menu Page
+			</label>
+			<label class="vzbltyLabel" for="youLostPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="youLostPageToggle">You Lost Page
+			</label>
+			<label class="vzbltyLabel" for="levelPassedPageToggle">
+				<input type="radio" name="pT" class="toggleCheckbox" id="levelPassedPageToggle">Level Passed Page
+			</label>
+		</div>
+	</div>
+
+	<div class="main-wrapper">
+
+		<!-- SPLASH/LOADING PAGE -->
+		<div id="pageSplash" class="page-cont page-splash page-faded-bg">
+			<div class="fixed-75w-wrapper">
+				<div id="splashScreenLogo" class="tpbl-circle c-white splash-screen-logo"></div>
+				<div id="splashScreenTxt">
+					Loading AWESOME STUFF
+				</div>
+			</div>
+		</div>
+
+		<!-- GAME MENU PAGE -->
+		<div id="pageGameMenu" class="page-cont page-game-menu page-faded-bg">
+			<div class="fixed-75w-wrapper">
+				<div class="gm-menu-header-cont">
+					<div class="tpbl-circle c-blue gm-menu-logo-bg"></div>
+					<h1 class="gm-menu-title">Whack-a-Mole</h1>
+					<h2 class="gm-menu-subtitle">Every Tap Matters</h2>
+				</div>
+				<button id="newGameBtn" class="gm-btn btn-blue" type="button" name="button">New Game</button>
+				<button id="highScoresBtn" class="gm-btn" type="button" name="button">High Scores</button>
+				<button id="scoreValidator" class="gm-btn" type="button" name="button">Score Validator</button>
+				<button id="aboutBtn" class="gm-btn" type="button" name="button">About</button>
+				<img src="images/Appleby White Reverse.png" style="width:65%; padding-top: 2em;"/>
+			</div>
+		</div>
+
+		<!-- HIGHSCORE PAGE -->
+		<div id="pageHighscore" class="page-cont page-highscore page-faded-bg" style="display : none;">
+			<div class="pageHighscore">
+				<h1 class="gm-menu-title" style="padding-top: 3%; padding-bottom: 3%;padding-left: 25%;">
+					Highscores
+					<a href="https://bitnodes.earn.com/nodes/live-map/" target="_blank" style="margin-right:6%;width:23%;padding-left:5%;"><img src="images/network_status.png" style="width:65%;margin-left: 90%;"></a>
+					<p style="color:green; font-size: 0.4em;width: 13%; margin-left: 75.5%;
+					margin-top: -2%;">Network online</p>
+				</h1>
+
+				<ul class="rolldown-list" id="highscoreList" style="display : inherit;">
+				</ul>
+				<button id="backtomenu" class="gm-btn btn-blue" type="button" name="button" style="width:75%;">Back to menu</button>
+			</div>
+		</div>
+
+		<!-- HIGHSCORE AUDIT PAGE -->
+		<div id="pageHighscoreAudit" class="page-cont page-faded-bg" style="display : none;">
+				<div class="pageHighscoreAudit">
+					<h1 class="gm-menu-title" style="padding-top: 3%; padding-bottom: 3%;">Highscore Audit</h1>
+					<h2 id="subtitleAudit" class="gm-menu-subtitle" ><div style="width:100%;margin-left: 12%;">
+						<div style="width:100%;display:-webkit-inline-box;">Points : <div id="points" class="dynamicItem" style="margin-right: 19%;">---</div> Total Hits: <div id="total" class="dynamicItem">--</div></div>
+						<div style="width:100%;display:-webkit-inline-box;">Fastest : <div id="fastest" class="dynamicItem" style="margin-right: 10.5%;">-.-- SEC</div> Average : <div id="average" class="dynamicItem">-.--- SEC</div></div>
+					</div></h2>
+				</br>
+					<ul class="rolldown-list" id="circleClicked" style="display : inherit;">
+						<li><p class="firstitem">Circle 1 <p class="seconditem">2.426 SEC</p> <a href="https://wavesexplorer.com/address/3PJL8MTwuBCjugSFDnTxVLfg7stM2wBkJLj" class="thirditem blockchainAudit" target="_blank">Blockchain audit</a></p></li>
+						<li><p class="firstitem">Circle 2 <p class="seconditem">1.845 SEC</p> <a href="https://wavesexplorer.com/address/3PJL8MTwuBCjugSFDnTxVLfg7stM2wBkJLj" class="thirditem blockchainAudit" target="_blank">Blockchain audit</a></p></li>
+						<li><p class="firstitem">Circle 3 <p class="seconditem">1.102 SEC</p> <a href="https://wavesexplorer.com/address/3PJL8MTwuBCjugSFDnTxVLfg7stM2wBkJLj" class="thirditem blockchainAudit" target="_blank">Blockchain audit</a></p></li>
+						<li><p class="firstitem">Circle 4 <p class="seconditem">0.891 SEC</p> <a href="https://wavesexplorer.com/address/3PJL8MTwuBCjugSFDnTxVLfg7stM2wBkJLj" class="thirditem blockchainAudit" target="_blank">Blockchain audit</a></p></li>
+					</ul>
+					<button id="backtohighscore" class="gm-btn btn-blue" type="button" name="button" style="width:75%;">Back to highscore</button>
+				</div>
+			</div>
+
+		<!-- ABOUT PAGE -->
+		<div id="pageAbout" class="page-cont page-about page-faded-bg anmtd-grdnt-bg blu-grdnt-bg no-bg">
+			<div class="fixed-75w-wrapper">
+				<div class="info-screen-title-cont" style="padding-top: 1em">
+					<img src="./images/mantle-glyph.png" style="width : 20%;"/>
+					<div class="info-screen-ttl-txt-bld">About</div>
+				</div>
+				<div class="info-screen-txt-cont">
+					<div>Created by <a href="https://mantleblockchain.com/" class="txt-bold" style="color : orangered">Mantle Blockchain</a>
+					</br>Game sponsored by:
+					<a href="https://www.applebyglobal.com/" class="txt-bold"><img src="images/Appleby White Reverse.png" style="width : 75%; padding-top : 1.5em;"/></a></br>
+					</div>
+					<hr>
+					<div>Credits</div>
+					<div>
+						<p style="text-transform:none; font-size:1.8rem;">Our Whack-a-Mole exhibit was designed to break the ice on understanding and interacting with a blockchain, all through playing a simple game. By saving and auditing scores on the leaderboard, players can visualize the benefits of blockchain to stimulate their thinking on new use cases and applications.</p>
+					</div>
+				</div>
+				<div id="abtPageBackBtn" class="tpbl-circle c-white submit-circle"></div>
+			</div>
+		</div>
+
+		<!-- NEW HIGH SCORE PAGE -->
+		<div id="pageHighScore" class="page-cont page-high-score page-faded-bg anmtd-grdnt-bg rd-grdnt-bg no-bg">
+			<div class="fixed-75w-wrapper">
+				<div class="info-screen-title-cont">
+					<div class="info-screen-icon you-lost-icon"></div>
+					<div class="info-screen-ttl-txt-bld">Game Over</div>
+					<div >You Lost</div>
+				</div>
+				<div class="info-screen-txt-cont">
+					<div class="info-screen-body-txt-reg">Score</div>
+					<div id="lvlLostNewHighScore" class="lvl-fnshd-score-nmb">86</div>
+					<div class="info-screen-body-txt-reg">New High Score</div>
+					<div class="lvl-fnshd-highscore-icon"></div>
+				</div>
+				<div class="sbmt-tryagain-txt">Try again?</div>
+				<div class="tpbl-circle c-white submit-circle"></div>
+			</div>
+		</div>
+
+
+		<!-- SCORE VALIDATOR PAGE -->
+		<div id="pageScoreValidator" class="page-cont page-faded-bg no-bg" style="display: none;">
+			<img src="images/backIcon.png" class="backArrow" style="width : 10%; position:absolute; top:3%; left:3%;cursor: pointer;">
+			<p class="backArrow" style="width : 10%; position:absolute; top:11.5%; left:4%;cursor: pointer;color:#58D1FF;text-decoration: underline;">BACK</p>
+			<div class="fixed-75w-wrapper">
+				<div style="margin-bottom: 1em;">
+					<div id="lvlLostIcon" style="background: url(images/validate.png) no-repeat center;background-size: contain;height: 100px;margin-bottom: -2%;"></div>
+					<div class="info-screen-ttl-txt-bld">Score Validator</div>
+					<div style="font-size: 1.8rem;">Enter score details here to recreate the score signature and validate it against the blockchain</div>
+				</div>
+				<div class="info-screen-txt-cont">
+					<div class="validator-form">
+						<div class="validator-form-row">
+						Date:
+						<input type="text" id ="scoreDate" class="blockchainName" placeholder="DD/MM/YYYY" autofocus="autofocus"/></div>
+						<div class="validator-form-row">
+						Name:
+						<input type="text" id ="scoreName" class="blockchainName" autofocus="autofocus"/></div>
+						<div class="validator-form-row">
+						Score:
+						<input type="text" id ="scoreAmount" class="blockchainName" autofocus="autofocus"/></div>
+					</div>
+					<div class="submit-info">
+						<button id="scoreSignatureBtn" class="gm-btn btn-blue" type="button" name="button" style="width: 75%;margin-top:8%;">Create score signature</button>
+					</div>
+				</div>
+				<div id="scoreSignature" style="text-transform: none;">
+					Score signature : <a href="www.google.com" id="scoreSignatureLink" target="_blank"></a>
+				</div>
+			</div>
+			</div>
+
+		<!-- GAME TUTORIAL PAGE -->
+		<div id="pageTutorial" class="page-cont page-tutorial page-faded-bg">
+			<div class="fixed-100w-wrapper">
+				<div id="tutPgStartGameBtn" class="tpbl-circle c-blue tut-circle"></div>
+				<div class="tut-arrow"></div>
+				<h2 class="tut-text">TAP THE CIRCLE<br/>TO START</h2>
+			</div>
+		</div>
+
+		<!-- PLAY DELAY PAGE -->
+		<div id="pagePlayDelay" class="page-cont page-play-delay page-faded-bg">
+			<div id="palyDelayCont" class="fixed-75w-wrapper">
+				<div class="" id="playDelayNum">
+					3
+				</div>
+			</div>
+		</div>
+
+
+		<!-- GAME PLAY AREA PAGE -->
+		<div id="pagePlayArea" class="page-cont page-play-area">
+
+			<div class="game-stats-cont">
+				<div class="stat-wrapper">
+					<div class="gm-stats-title">Bonus</div>
+					<div id="gmStatsBonus" class="gm-stats-value" value="0">0</div>
+				</div>
+				<div class="stat-wrapper">
+					<div class="gm-stats-title">Score</div>
+					<div id="gmStatsScore" class="gm-stats-value" value="0">0</div>
+				</div>
+				<div class="stat-wrapper">
+					<div id="gmStatsLvlNumb" class="gm-stats-title">Life</div>
+						<div class="gm-stats-value">
+						<span id="gmStatsCurrentLife" class="gm-stats-tap-count" value="3">3</span>
+					</div>
+				</div>
+			</div>
+			<div id="gameSpace" class="game-space">
+				<!-- Where the magic happens -->
+				<!-- <div class="tpbl-circle c-blue"></div> -->
+				<!-- <div class="tpbl-circle c-red"></div> -->
+			</div>
+		</div>
+
+		<!-- GAME PAUSE PAGE -->
+		<div id="pagePauseMenu" class="page-cont page-pause-menu page-faded-bg anmtd-grdnt-bg blu-grdnt-bg no-bg">
+			<div class="fixed-75w-wrapper">
+				<div class="info-screen-title-cont">
+					<div class="info-screen-icon puz-icon"></div>
+					<div class="info-screen-ttl-txt-bld">GAME PAUSED</div>
+				</div>
+				<div class="info-screen-txt-cont">
+					<div class="info-screen-body-txt-reg">Score</div>
+					<div id="lvlPausedScore" class="lvl-fnshd-score-nmb"></div>
+				</div>
+				<div class="puz-menu-btnz-cont">
+					<button id="pmCntnuGmBtn" class="gm-btn btn-blue">Continue</button>
+					<button id="pmRstrtLvlBtn" class="gm-btn pm-rstrt-lvl-btn">Restart</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- YOU LOST PAGE -->
+		<div id="pageYouLost" class="page-cont page-you-lost page-faded-bg anmtd-grdnt-bg rd-grdnt-bg no-bg">
+			<div class="popupInfo">
+				<p>Score Sent To Blockchain</p>
+			</div>
+			<div class="fixed-75w-wrapper">
+				<div class="info-screen-title-cont">
+					<div id="lvlLostIcon" class="info-screen-icon you-lost-icon"></div>
+					<div class="info-screen-ttl-txt-bld">Game Over</div>
+					<div id="lvlLostTtl" >You Lost</div>
+				</div>
+				<div class="info-screen-txt-cont">
+					<div class="info-screen-body-txt-reg">Score</div>
+					<div id="lvlLostScore" class="lvl-fnshd-score-nmb"><span id="game-over-score" value="0"></span></div>
+				</div>
+				<div class="info-screen-title-cont">
+					<div class="sbmt-tryagain-txt">Try again?</div>
+					<div id="lvlLostTryAgainBtn" class="tpbl-circle c-white submit-circle"></div>
+				</div>
+				<div class="info-screen-title-cont">
+					<div class="submit-info">
+						<span>Name: </span>
+						<input type="text" id="name" class="blockchainName" autofocus="autofocus"/>
+					</div>
+					<div class="submit-info">
+						<button id="sbmt-score" class="gm-btn btn-blue" type="button" name="button">Submit score to blockchain</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- logic & brain -->
+	<script src="js/habibiScript.js"></script>
+</body>
+</html>
