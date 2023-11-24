@@ -428,6 +428,7 @@ var gameEngine = {
     }
     gameEngine.currentStreak++;
     gameEngine.life--;
+    console.log("You lost a life! 😢");
     document.getElementById("gmStatsCurrentLife").innerHTML = gameEngine.life;
   },
 
@@ -500,7 +501,7 @@ var gameEngine = {
   evilCircleTap: function () {
     gameEngine.resetBonusScore();
     gameEngine.updateScore(gameEngine.score - 10);
-    gameEngine.lostLife();
+    // gameEngine.lostLife();
   },
 
   stop: function () { // stop the game and reset level values
