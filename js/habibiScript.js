@@ -785,7 +785,7 @@ $("#sbmt-score").click(async function(){
   showPopup()
   disableButton(this);
   
-  var playerName = $("#name").val().trim() === "" ? "Undefined-appleby" : $("#name").val()
+  var playerAddress = $("#address").val().trim() === "" ? "Undefined-appleby" : $("#address").val()
 
   var clickedCirclesTime = []
   for(var i=0; i <= defaultGameValues.circle; i++)
@@ -796,7 +796,7 @@ $("#sbmt-score").click(async function(){
     }
   }
 
-  await sendScoreToMantleBlockchain(playerName, gameEngine.score, clickedCirclesTime, gameEngine.streakBreaker).then(res => {
+  await sendScoreToMantleBlockchain(playerAddress, gameEngine.score, clickedCirclesTime, gameEngine.streakBreaker).then(res => {
       if(!res.ok)
       {
         console.log(res.status)
