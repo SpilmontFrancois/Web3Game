@@ -540,11 +540,16 @@ var gameEngine = {
     if (window.ethereum) {
       // Request account access
       try {
+        disableButton($("#sbmt-score"))
         const accounts = await ethereum.request({ method: "eth_requestAccounts" })
         $("#address").text(accounts[0])
-
+  
         $("#connect-metamask").hide();
+
+        $("#sbmt-score").attr("disabled", false);
+        $("#sbmt-score").addClass("btn-blue");
       } catch (error) {
+        $("#address").text("An error occured, please connect to MetaMask to submit your score.")
         if (error.code === 4001) {
           console.log("User rejected request or already has a pending request")
         } else {
@@ -552,6 +557,7 @@ var gameEngine = {
         }
       }
     } else {
+      disableButton($("#sbmt-score"))
       $("#address").text("MetaMask not detected")
     }
   },
@@ -730,29 +736,56 @@ toolsBox.hideSplashScreen();
 const BackendUrl = "  https://49bb-67-69-76-217.ngrok-free.app";
 //const MantleBaseUrl = "http://192.168.1.116:49173";
 //const ApiKey = "HQuVX/sWLxobg6ZT4kdcTkCpGulp7NQfAxhIpUy25so=";
+const tokenID = "0x4c3C1a36f4FbF0a73De2E01df75D52a0cF52DD92"
+const QUICKNODE_URL = "https://boldest-icy-county.matic-testnet.quiknode.pro/357efaa90ba836908d3897fe604e5162e187b272"
+
+const web3 = new Web3(new Web3.providers.HttpProvider(QUICKNODE_URL))
+
+const abi = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenID",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_score",
+        "type": "uint256"
+      }
+    ],
+    "name": "addScore",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
+
+const contract = new web3.eth.Contract(abi, tokenID)
 
 const NotFoundError = 404;
 let ApprovingPlayer = [];
 
-async function sendScoreToMantleBlockchain(name, score, clickedCirclesTime, streakBreaker)
-{
-    var data ={
-        player: name,
-        score: score,
-        circleTime: clickedCirclesTime.toString(),
-        streakBreaker: streakBreaker
-    };
+async function sendScoreToMetamaskSession(score) {
+  const address = $("#address").text();
 
-    var request = {
-        headers: {
-          "Content-Type":"application/json",
-          "Access-Control-Allow-Origin":"*",
-        },
-        method: "POST",
-        body: JSON.stringify(data)
-    };
-
-    return await fetch(`${BackendUrl}/scores` , request);
+  if (address === "") {
+    return;
+  }
+// todo here : make it work
+  // // mint score to the player address
+  // const mintScore = await contract.methods.addScore(tokenID, address, score).send({ from: address })
+  // console.log(mintScore);
+  
+  // // get the receipt id
+  // const receiptId = mintScore.events.Transfer.returnValues.tokenId;
+  // console.log(receiptId);
 }
 
 function disableButton(button)
@@ -765,11 +798,16 @@ $("#connect-metamask").click(async function(){
   if (window.ethereum) {
     // Request account access
     try {
+      disableButton($("#sbmt-score"))
       const accounts = await ethereum.request({ method: "eth_requestAccounts" })
       $("#address").text(accounts[0])
 
       $("#connect-metamask").hide();
+
+      $("#sbmt-score").attr("disabled", false);
+      $("#sbmt-score").addClass("btn-blue");
     } catch (error) {
+      $("#address").text("An error occured, please connect to MetaMask to submit your score.")
       if (error.code === 4001) {
         console.log("User rejected request or already has a pending request")
       } else {
@@ -777,6 +815,7 @@ $("#connect-metamask").click(async function(){
       }
     }
   } else {
+    disableButton($("#sbmt-score"))
     $("#address").text("MetaMask not detected")
   }
 })
@@ -796,12 +835,7 @@ $("#sbmt-score").click(async function(){
     }
   }
 
-  await sendScoreToMantleBlockchain(playerAddress, gameEngine.score, clickedCirclesTime, gameEngine.streakBreaker).then(res => {
-      if(!res.ok)
-      {
-        console.log(res.status)
-      }
-  });
+  await sendScoreToMetamaskSession(gameEngine.score)
 });
 
 
