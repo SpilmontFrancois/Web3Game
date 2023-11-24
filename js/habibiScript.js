@@ -520,7 +520,7 @@ var gameEngine = {
     console.log('game STOPPED!');
   },
 
-  gameLost: function() {
+  gameLost: async function() {
     audioPool.playSound(levelLost);
     gameOverScore.innerHTML = gameEngine.score;
     toolsBox.hidePage(pagePlayArea);
@@ -536,6 +536,24 @@ var gameEngine = {
 
     gameEngine.stop();
 
+    // Detect if MetaMask is installed
+    if (window.ethereum) {
+      // Request account access
+      try {
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" })
+        $("#address").text(accounts[0])
+
+        $("#connect-metamask").hide();
+      } catch (error) {
+        if (error.code === 4001) {
+          console.log("User rejected request or already has a pending request")
+        } else {
+          console.error(error)
+        }
+      }
+    } else {
+      $("#address").text("MetaMask not detected")
+    }
   },
 
   gameOver: function() { // tapping a red circle
@@ -742,6 +760,26 @@ function disableButton(button)
     $(button).attr("disabled", true);
     $(button).removeClass("btn-blue");
 }
+
+$("#connect-metamask").click(async function(){
+  if (window.ethereum) {
+    // Request account access
+    try {
+      const accounts = await ethereum.request({ method: "eth_requestAccounts" })
+      $("#address").text(accounts[0])
+
+      $("#connect-metamask").hide();
+    } catch (error) {
+      if (error.code === 4001) {
+        console.log("User rejected request or already has a pending request")
+      } else {
+        console.error(error)
+      }
+    }
+  } else {
+    $("#address").text("MetaMask not detected")
+  }
+})
 
 $("#sbmt-score").click(async function(){
   showPopup()
