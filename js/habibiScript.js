@@ -1,203 +1,231 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Do after the document fully loaded
-});
+})
 // ===============================================================
 // ================== SHOW/HIDE PAGES - ADMIN ====================
 // ===============================================================
-var adminCPItems = document.querySelector('.admin-cp-items');
-var adminCPBtn = document.querySelector('.admin-cp-button');
-adminCPBtn.addEventListener('click', function () { adminCPItems.classList.toggle('hidden'); }, false);
-
-
+var adminCPItems = document.querySelector(".admin-cp-items")
+var adminCPBtn = document.querySelector(".admin-cp-button")
+adminCPBtn.addEventListener(
+  "click",
+  function () {
+    adminCPItems.classList.toggle("hidden")
+  },
+  false
+)
 
 // ---------------------- Pages ---------------------- //
 
 // Splash Page
-var pageSplash = document.querySelector('#pageSplash');
+var pageSplash = document.querySelector("#pageSplash")
 // --
-var splashScreenTxt = document.querySelector('#splashScreenTxt');
-var splashScreenLogo = document.querySelector('#splashScreenLogo');
-
+var splashScreenTxt = document.querySelector("#splashScreenTxt")
+var splashScreenLogo = document.querySelector("#splashScreenLogo")
 
 // Play Delay Page
-var pagePlayDelay = document.querySelector('#pagePlayDelay');
+var pagePlayDelay = document.querySelector("#pagePlayDelay")
 // --
-var palyDelayCont = document.querySelector('#palyDelayCont');
-var playDelayNum = document.querySelector('#playDelayNum');
-
+var palyDelayCont = document.querySelector("#palyDelayCont")
+var playDelayNum = document.querySelector("#playDelayNum")
 
 // Play Area Page
-var pagePlayArea = document.querySelector('#pagePlayArea');
+var pagePlayArea = document.querySelector("#pagePlayArea")
 // --
-var gmStatsTimeProgress = document.querySelector('#gmStatsTimeProgress');
-var gmStatsPauseBtn = document.querySelector('#gmStatsPauseBtn');
-var gmStatsScore = document.querySelector('#gmStatsScore');
-var gmStatsLvlNumb = document.querySelector('#gmStatsLvlNumb');
-var gameSpace = document.querySelector('#gameSpace');
-var gmStatsCurrentTapCount = document.querySelector('#gmStatsCurrentTapCount');
-var gmStatsTotalTapCount = document.querySelector('#gmStatsTotalTapCount');
+var gmStatsTimeProgress = document.querySelector("#gmStatsTimeProgress")
+var gmStatsPauseBtn = document.querySelector("#gmStatsPauseBtn")
+var gmStatsScore = document.querySelector("#gmStatsScore")
+var gmStatsLvlNumb = document.querySelector("#gmStatsLvlNumb")
+var gameSpace = document.querySelector("#gameSpace")
+var gmStatsCurrentTapCount = document.querySelector("#gmStatsCurrentTapCount")
+var gmStatsTotalTapCount = document.querySelector("#gmStatsTotalTapCount")
 
 // Game Menu Page
-var pageGameMenu = document.querySelector('#pageGameMenu');
+var pageGameMenu = document.querySelector("#pageGameMenu")
 // --
-var newGameBtn = document.querySelector('#newGameBtn');
-var highScoresBtn = document.querySelector('#highScoresBtn');
-var aboutBtn = document.querySelector('#aboutBtn');
+var newGameBtn = document.querySelector("#newGameBtn")
+var highScoresBtn = document.querySelector("#highScoresBtn")
+var aboutBtn = document.querySelector("#aboutBtn")
 
 // Tutorial Page
-var pageTutorial = document.querySelector('#pageTutorial');
+var pageTutorial = document.querySelector("#pageTutorial")
 // --
-var tutPgStartGameBtn = document.querySelector('#tutPgStartGameBtn');
-
+var tutPgStartGameBtn = document.querySelector("#tutPgStartGameBtn")
 
 // Pause Menu Page
-var pagePauseMenu = document.querySelector('#pagePauseMenu');
+var pagePauseMenu = document.querySelector("#pagePauseMenu")
 // --
-var lvlPausedScore = document.querySelector('#lvlPausedScore');
-var pmRstrtLvlBtn = document.querySelector('#pmRstrtLvlBtn');
-var pmCntnuGmBtn = document.querySelector('#pmCntnuGmBtn');
-
+var lvlPausedScore = document.querySelector("#lvlPausedScore")
+var pmRstrtLvlBtn = document.querySelector("#pmRstrtLvlBtn")
+var pmCntnuGmBtn = document.querySelector("#pmCntnuGmBtn")
 
 // --
-var lvlPssdTitle = document.querySelector('#lvlPssdTtl');
-var lvlPssdScore = document.querySelector('#lvlPssdScore');
-var lvlPssdBonusScore = document.querySelector('#lvlPssdBonusScore');
-var lvlPssdContinueNextLvlBtn = document.querySelector('#lvlPssdContinueNextLvlBtn');
-
+var lvlPssdTitle = document.querySelector("#lvlPssdTtl")
+var lvlPssdScore = document.querySelector("#lvlPssdScore")
+var lvlPssdBonusScore = document.querySelector("#lvlPssdBonusScore")
+var lvlPssdContinueNextLvlBtn = document.querySelector(
+  "#lvlPssdContinueNextLvlBtn"
+)
 
 // You lost page
-var pageYouLost = document.querySelector('#pageYouLost');
+var pageYouLost = document.querySelector("#pageYouLost")
 // --
-var gameOverScore = document.querySelector('#game-over-score');
-var lvlLostBestScore = document.querySelector('#lvlLostBestScore');
-var lvlLostTtl = document.querySelector('#lvlLostTtl');
-var lvlLostTryAgainBtn = document.querySelector('#lvlLostTryAgainBtn');
-var lvlLostIcon = document.querySelector('#lvlLostIcon');
-
+var gameOverScore = document.querySelector("#game-over-score")
+var lvlLostBestScore = document.querySelector("#lvlLostBestScore")
+var lvlLostTtl = document.querySelector("#lvlLostTtl")
+var lvlLostTryAgainBtn = document.querySelector("#lvlLostTryAgainBtn")
+var lvlLostIcon = document.querySelector("#lvlLostIcon")
 
 // High Score Page
-var pageHighScore = document.querySelector('#pageHighScore');
+var pageHighScore = document.querySelector("#pageHighScore")
 // --
-var lvlLostNewHighScore = document.querySelector('#lvlLostNewHighScore');
-
+var lvlLostNewHighScore = document.querySelector("#lvlLostNewHighScore")
 
 // About Page
-var pageAbout = document.querySelector('#pageAbout');
+var pageAbout = document.querySelector("#pageAbout")
 // --
-var abtPageBackBtn = document.querySelector('#abtPageBackBtn');
-
+var abtPageBackBtn = document.querySelector("#abtPageBackBtn")
 
 // ------- Show Hide Pages Control Panel ------- //
-var playDelayPageToggle = document.getElementById('playDelayPageToggle');
-var playAreaPageToggle = document.getElementById('playAreaPageToggle');
-var gameMenuPageToggle = document.getElementById('gameMenuPageToggle');
-var tutorialPageToggle = document.getElementById('tutorialPageToggle');
-var pauseMenuPageToggle = document.getElementById('pauseMenuPageToggle');
-var youLostPageToggle = document.getElementById('youLostPageToggle');
-var highScorePageToggle = document.getElementById('highScorePageToggle');
-var aboutPageToggle = document.getElementById('aboutPageToggle');
-var splashPageToggle = document.getElementById('splashPageToggle');
+var playDelayPageToggle = document.getElementById("playDelayPageToggle")
+var playAreaPageToggle = document.getElementById("playAreaPageToggle")
+var gameMenuPageToggle = document.getElementById("gameMenuPageToggle")
+var tutorialPageToggle = document.getElementById("tutorialPageToggle")
+var pauseMenuPageToggle = document.getElementById("pauseMenuPageToggle")
+var youLostPageToggle = document.getElementById("youLostPageToggle")
+var highScorePageToggle = document.getElementById("highScorePageToggle")
+var aboutPageToggle = document.getElementById("aboutPageToggle")
+var splashPageToggle = document.getElementById("splashPageToggle")
 
 var pagesTogglesArray = [
-  playAreaPageToggle, gameMenuPageToggle, tutorialPageToggle, playDelayPageToggle,
+  playAreaPageToggle,
+  gameMenuPageToggle,
+  tutorialPageToggle,
+  playDelayPageToggle,
   pauseMenuPageToggle,
-  youLostPageToggle, highScorePageToggle, aboutPageToggle, splashPageToggle
+  youLostPageToggle,
+  highScorePageToggle,
+  aboutPageToggle,
+  splashPageToggle,
 ]
 var pagesArray = [
-  pagePlayArea, pageGameMenu, pageTutorial, pagePlayDelay,
+  pagePlayArea,
+  pageGameMenu,
+  pageTutorial,
+  pagePlayDelay,
   pagePauseMenu,
-  pageYouLost, pageHighScore, pageAbout, pageSplash
+  pageYouLost,
+  pageHighScore,
+  pageAbout,
+  pageSplash,
 ]
 
 // show/hide pages if the checkbox is checked
 togglePage = function (pageToggle, page) {
   if (pageToggle.checked) {
-    toolsBox.showPage(page);
+    toolsBox.showPage(page)
   } else {
-    toolsBox.hidePage(page);
+    toolsBox.hidePage(page)
   }
 }
 
 // on click event to all toggles on the page to show/hide pages
 for (var i = 0; i < pagesTogglesArray.length; i++) {
-  pagesTogglesArray[i].addEventListener('click', function () {
-    for (var i = 0; i < pagesTogglesArray.length; i++) {
-      togglePage(pagesTogglesArray[i], pagesArray[i]);
-    }
-  }, false);
+  pagesTogglesArray[i].addEventListener(
+    "click",
+    function () {
+      for (var i = 0; i < pagesTogglesArray.length; i++) {
+        togglePage(pagesTogglesArray[i], pagesArray[i])
+      }
+    },
+    false
+  )
 }
 // ===============================================================
 // ===============================================================
 
-
 // ------------- GENERAL FUNCTIONS ------------- //
 toolsBox = {
-  generateUUID: function () { // Public Domain/MIT
-    var d = new Date().getTime();
-    if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
-      d += performance.now(); //use high-precision timer if available
+  generateUUID: function () {
+    // Public Domain/MIT
+    var d = new Date().getTime()
+    if (
+      typeof performance !== "undefined" &&
+      typeof performance.now === "function"
+    ) {
+      d += performance.now() //use high-precision timer if available
     }
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+      /[xy]/g,
+      function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0
+        d = Math.floor(d / 16)
+        return (c === "x" ? r : (r & 0x3) | 0x8).toString(16)
+      }
+    )
   },
 
   delay: function (fun, delayTime) {
-    var delayAction = setTimeout(fun, delayTime);
+    var delayAction = setTimeout(fun, delayTime)
   },
-  gnrtRndmNum: function (minNumb, maxNumb) { // generate random number in range
-    return Math.floor(Math.random() * (maxNumb - minNumb + 1)) + minNumb;
+  gnrtRndmNum: function (minNumb, maxNumb) {
+    // generate random number in range
+    return Math.floor(Math.random() * (maxNumb - minNumb + 1)) + minNumb
   },
   showPage: function (page) {
-    page.style.display = "block";
+    page.style.display = "block"
   },
   hidePage: function (page) {
-    page.style.display = "none";
+    page.style.display = "none"
   },
   hideSplashScreen: function () {
-    splashScreenTxt.classList.add('fadeOut-animation');
-    splashScreenLogo.classList.add('fadeOut-animation');
+    splashScreenTxt.classList.add("fadeOut-animation")
+    splashScreenLogo.classList.add("fadeOut-animation")
     toolsBox.delay(function () {
-      toolsBox.showPage(pageGameMenu);
-      toolsBox.hidePage(pageSplash);
-    }, 1500); // Show after 1.5s because the fadeOut-animation takes 0.5s and has 1s delay
+      toolsBox.showPage(pageGameMenu)
+      toolsBox.hidePage(pageSplash)
+    }, 1500) // Show after 1.5s because the fadeOut-animation takes 0.5s and has 1s delay
   },
-  onClickNTouchstart: function (element, fun) { // add click and touchstart event listeners
-    element.addEventListener('click', fun, false);
-    element.addEventListener('touchstart', fun, false);
+  onClickNTouchstart: function (element, fun) {
+    // add click and touchstart event listeners
+    element.addEventListener("click", fun, false)
+    element.addEventListener("touchstart", fun, false)
   },
-  toggleAnimation: function (element, animationClass) { // add animation class and remove it when it's done (to enable repeating it)
-    element.classList.add(animationClass);
-    element.addEventListener('animationend', function () {
-      element.classList.remove(animationClass);
-    }, false);
+  toggleAnimation: function (element, animationClass) {
+    // add animation class and remove it when it's done (to enable repeating it)
+    element.classList.add(animationClass)
+    element.addEventListener(
+      "animationend",
+      function () {
+        element.classList.remove(animationClass)
+      },
+      false
+    )
   },
-  windowSize: { // get the size of the page
+  windowSize: {
+    // get the size of the page
     width: window.innerWidth || document.body.clientWidth,
-    height: window.innerHeight || document.body.clientHeight
+    height: window.innerHeight || document.body.clientHeight,
   },
   pagePlayDelay: {
     updateNumber: function () {
-      toolsBox.toggleAnimation(playDelayNum, 'grow-animation');
-      playDelayNum.innerHTML = parseInt(playDelayNum.innerHTML, 10) - 1;
+      toolsBox.toggleAnimation(playDelayNum, "grow-animation")
+      playDelayNum.innerHTML = parseInt(playDelayNum.innerHTML, 10) - 1
     },
-    start: function () { // start counting down
-      toolsBox.toggleAnimation(playDelayNum, 'grow-animation');
+    start: function () {
+      // start counting down
+      toolsBox.toggleAnimation(playDelayNum, "grow-animation")
       var timer = setInterval(function () {
         if (playDelayNum.innerHTML > 1) {
-          audioPool.playSound(delayCount);
-          toolsBox.pagePlayDelay.updateNumber();
+          audioPool.playSound(delayCount)
+          toolsBox.pagePlayDelay.updateNumber()
         } else {
-          clearInterval(timer);
-          toolsBox.hidePage(pagePlayDelay);
-          playDelayNum.innerHTML = 3;
+          clearInterval(timer)
+          toolsBox.hidePage(pagePlayDelay)
+          playDelayNum.innerHTML = 3
         }
-      }, 500);
-    }
+      }, 500)
+    },
   },
-
 }
 
 // ----------------------------------------------------------------- //
@@ -205,70 +233,77 @@ toolsBox = {
 
 var circlesEngine = {
   create: function () {
-    var element = document.createElement('div');
-    element.id = toolsBox.generateUUID();
+    var element = document.createElement("div")
+    element.id = toolsBox.generateUUID()
 
     setTimeout(function () {
-      circlesEngine.remove(element, true);
-    }, (gameEngine.circleDespawnTime));
+      circlesEngine.remove(element, true)
+    }, gameEngine.circleDespawnTime)
 
-    element.setAttribute('class', 'tpbl-circle ' + gameEngine.spawnCircle());
-    gameSpace.appendChild(element);
-    toolsBox.onClickNTouchstart(element, function () { // on click & touch start function
-      element.className.includes(gameEngine.circleType.good) ? gameEngine.goodCircleTap() : gameEngine.evilCircleTap();
-      gameEngine.updateCircleDespawnTime();
-      circlesEngine.remove(element, false);
-    });
+    element.setAttribute("class", "tpbl-circle " + gameEngine.spawnCircle())
+    gameSpace.appendChild(element)
+    toolsBox.onClickNTouchstart(element, function () {
+      // on click & touch start function
+      element.className.includes(gameEngine.circleType.good)
+        ? gameEngine.goodCircleTap()
+        : gameEngine.evilCircleTap()
+      gameEngine.updateCircleDespawnTime()
+      circlesEngine.remove(element, false)
+    })
 
-    return element;
+    return element
   },
 
   remove: function (circle, timePenalty) {
     if (circle != null && circle.parentNode != null) {
-      circle.parentNode.removeChild(circle);
-      circlesPosition[defaultGameValues.circle - 1].timeDespawn = Date.now();
+      circle.parentNode.removeChild(circle)
+      circlesPosition[defaultGameValues.circle - 1].timeDespawn = Date.now()
 
-      if (timePenalty === true && circle.className.includes(gameEngine.circleType.good)) {
-
-        gameEngine.resetCircleDespawnTime();
-        gameEngine.resetBonusScore();
-        gameEngine.lostLife();
+      if (
+        timePenalty === true &&
+        circle.className.includes(gameEngine.circleType.good)
+      ) {
+        gameEngine.resetCircleDespawnTime()
+        gameEngine.resetBonusScore()
+        gameEngine.lostLife()
       }
 
-      circlesEngine.add();
+      circlesEngine.add()
     }
   },
 
-  destroy: function (circle) { // destroy all the circles of a specific type
+  destroy: function (circle) {
+    // destroy all the circles of a specific type
     // Convert the Node List into in Array and delete all the items in it
     Array.from(circle).forEach(function (element) {
-      element.parentNode.removeChild(element);
-    });
+      element.parentNode.removeChild(element)
+    })
   },
 
   setPosition: function (circle) {
-    circle.style.left = circlesPosition[defaultGameValues.circle].x;
-    circle.style.top = circlesPosition[defaultGameValues.circle].y;
-    circlesPosition[defaultGameValues.circle].timeSpawn = Date.now();
-    defaultGameValues.circle++;
+    circle.style.left = circlesPosition[defaultGameValues.circle].x
+    circle.style.top = circlesPosition[defaultGameValues.circle].y
+    circlesPosition[defaultGameValues.circle].timeSpawn = Date.now()
+    defaultGameValues.circle++
   },
 
-  add: function () { // Add circles to the game space
+  add: function () {
+    // Add circles to the game space
     if (gameEngine.currentlyPlaying) {
-      circle = circlesEngine.create();
-      circlesEngine.setPosition(circle);
-      circlesEngine.addWithDelay(i, circle); // add CSS animation class with delay
+      circle = circlesEngine.create()
+      circlesEngine.setPosition(circle)
+      circlesEngine.addWithDelay(i, circle) // add CSS animation class with delay
     }
   },
 
-  addWithDelay: function (i, circle) { // add CSS class with delay
+  addWithDelay: function (i, circle) {
+    // add CSS class with delay
     setTimeout(function () {
-      circle.classList.add('grow-animation');
-      audioPool.playSound(circleAppear);
-    }, i * 50); // delay each using the index (i) * 50ms
-  }
+      circle.classList.add("grow-animation")
+      audioPool.playSound(circleAppear)
+    }, i * 50) // delay each using the index (i) * 50ms
+  },
 }
-
 
 var circlesPosition = [
   { x: "555px", y: "138px", timeSpawn: null, timeDespawn: null },
@@ -368,7 +403,7 @@ var circlesPosition = [
   { x: "54px", y: "480px", timeSpawn: null, timeDespawn: null },
   { x: "551px", y: "453px", timeSpawn: null, timeDespawn: null },
   { x: "109px", y: "402px", timeSpawn: null, timeDespawn: null },
-  { x: "374px", y: "162px", timeSpawn: null, timeDespawn: null }
+  { x: "374px", y: "162px", timeSpawn: null, timeDespawn: null },
 ]
 
 // ----------------------------------------------------------------- //
@@ -380,11 +415,10 @@ var defaultGameValues = {
   score: 0,
   life: 3,
   circle: 0,
-  circleDespawnTime: 2000
+  circleDespawnTime: 2000,
 }
 
 var gameEngine = {
-
   circleDespawnTime: 2000,
   currentlyPlaying: false,
   life: 3,
@@ -392,9 +426,9 @@ var gameEngine = {
   streakBreaker: [0, 0, 0, 0],
   circleType: {
     good: "good-circle",
-    evil: "evil-circle"
+    evil: "evil-circle",
   },
-  chanceToHaveGoodCircle: 0.25,
+  chanceToHaveGoodCircle: 0.75,
   timePenalty: 8,
   score: 0,
   goodCirclesCount: 2,
@@ -403,142 +437,148 @@ var gameEngine = {
   bonusScore: 0,
 
   spawnCircle: function () {
-    var circleType = " c-red evil-circle";
+    var circleType = " c-red evil-circle"
 
     if (Math.random() <= gameEngine.chanceToHaveGoodCircle) {
-      return circleType = "c-blue good-circle";
-
+      return (circleType = "c-blue good-circle")
     }
 
-    return circleType;
+    return circleType
   },
-  updateScore: function (amount) { //add amount to score
+  updateScore: function (amount) {
+    //add amount to score
     if (amount < 0) {
-      document.getElementById("gmStatsScore").innerHTML = "0";
-      gameEngine.lostLife();
-    }
-    else {
-      gameEngine.score = amount;
-      gmStatsScore.innerHTML = gameEngine.score;
+      document.getElementById("gmStatsScore").innerHTML = "0"
+      gameEngine.lostLife()
+    } else {
+      gameEngine.score = amount
+      gmStatsScore.innerHTML = gameEngine.score
     }
   },
   lostLife: function () {
     if (gameEngine.life <= 0) {
-      gameEngine.gameOver();
+      gameEngine.gameOver()
     }
-    gameEngine.currentStreak++;
-    gameEngine.life--;
-    console.log("You lost a life! 😢");
-    document.getElementById("gmStatsCurrentLife").innerHTML = gameEngine.life;
+    gameEngine.currentStreak++
+    gameEngine.life--
+    console.log("You lost a life! 😢")
+    document.getElementById("gmStatsCurrentLife").innerHTML = gameEngine.life
   },
 
   updateCircleDespawnTime() {
-    gameEngine.circleDespawnTime = defaultGameValues.circleDespawnTime - (gameEngine.bonusScore * 100);
+    gameEngine.circleDespawnTime =
+      defaultGameValues.circleDespawnTime - gameEngine.bonusScore * 100
   },
 
   resetCircleDespawnTime() {
-    gameEngine.circleDespawnTime = defaultGameValues.circleDespawnTime;
+    gameEngine.circleDespawnTime = defaultGameValues.circleDespawnTime
   },
 
   updateBonusScore: function () {
-    gameEngine.bonusScore++;
-    document.getElementById("gmStatsBonus").innerHTML = gameEngine.bonusScore;
+    gameEngine.bonusScore++
+    document.getElementById("gmStatsBonus").innerHTML = gameEngine.bonusScore
   },
 
   resetBonusScore: function () {
-    gameEngine.bonusScore = 0;
-    document.getElementById("gmStatsBonus").innerHTML = gameEngine.bonusScore;
+    gameEngine.bonusScore = 0
+    document.getElementById("gmStatsBonus").innerHTML = gameEngine.bonusScore
   },
 
   resetSendScoreToBlockchainbutton: function () {
-    $('#sbmt-score').removeAttr("disabled");
-    $('#sbmt-score').addClass("btn-blue");
+    $("#sbmt-score").removeAttr("disabled")
+    $("#sbmt-score").addClass("btn-blue")
   },
 
   resetCirclesPositionArray: function () {
-    circlesPosition.forEach(circlePosition => {
-      circlePosition.timeSpawn = null;
-      circlePosition.timeDespawn = null;
-    });
+    circlesPosition.forEach((circlePosition) => {
+      circlePosition.timeSpawn = null
+      circlePosition.timeDespawn = null
+    })
   },
   resetLife: function () {
-    document.getElementById("gmStatsCurrentLife").innerHTML = "3";
-    gameEngine.life = defaultGameValues.life;
+    document.getElementById("gmStatsCurrentLife").innerHTML = "3"
+    gameEngine.life = defaultGameValues.life
   },
 
   resetStreak: function () {
-    gameEngine.currentStreak = 0;
+    gameEngine.currentStreak = 0
     gameEngine.streakBreaker = [0, 0, 0, 0]
   },
 
-  reset: function () { // reset the level values from the levels engine to start a new game
-    gameEngine.resetSendScoreToBlockchainbutton();
-    gameEngine.resetCirclesPositionArray();
-    gameEngine.updateScore(defaultGameValues.score);
-    gameEngine.resetLife();
-    gameEngine.resetStreak();
-    defaultGameValues.circle = 0;
-    gameEngine.goodCirclesCount = defaultGameValues.goodCirclesCount;
-    gameEngine.evilCirclesCount = defaultGameValues.evilCirclesCount;
+  reset: function () {
+    // reset the level values from the levels engine to start a new game
+    gameEngine.resetSendScoreToBlockchainbutton()
+    gameEngine.resetCirclesPositionArray()
+    gameEngine.updateScore(defaultGameValues.score)
+    gameEngine.resetLife()
+    gameEngine.resetStreak()
+    defaultGameValues.circle = 0
+    gameEngine.goodCirclesCount = defaultGameValues.goodCirclesCount
+    gameEngine.evilCirclesCount = defaultGameValues.evilCirclesCount
   },
   start: function () {
-    gameEngine.currentlyPlaying = true;
+    gameEngine.currentlyPlaying = true
     // Inatial level setup & adding data to the game engine
-    gameEngine.updateScore(gameEngine.score);
-    gameEngine.goodCirclesCount = gameEngine.goodCirclesCount;
-    gameEngine.evilCirclesCount = gameEngine.evilCirclesCount;
+    gameEngine.updateScore(gameEngine.score)
+    gameEngine.goodCirclesCount = gameEngine.goodCirclesCount
+    gameEngine.evilCirclesCount = gameEngine.evilCirclesCount
 
-    console.log('Game Started! 🏁');
+    console.log("Game Started! 🏁")
     // adding circles to the game space
-    circlesEngine.add();
+    circlesEngine.add()
   },
   goodCircleTap: function () {
-    var pts = (gameEngine.bonusScore === 0) ? 10 : gameEngine.bonusScore * 10;
-    gameEngine.streakBreaker[gameEngine.currentStreak]++;
-    gameEngine.updateBonusScore();
-    gameEngine.updateScore(gameEngine.score + pts);
+    var pts = gameEngine.bonusScore === 0 ? 10 : gameEngine.bonusScore * 10
+    gameEngine.streakBreaker[gameEngine.currentStreak]++
+    gameEngine.updateBonusScore()
+    gameEngine.updateScore(gameEngine.score + pts)
   },
   evilCircleTap: function () {
-    gameEngine.resetBonusScore();
-    gameEngine.updateScore(gameEngine.score - 10);
+    gameEngine.resetBonusScore()
+    gameEngine.updateScore(gameEngine.score - 10)
     // gameEngine.lostLife();
   },
 
-  stop: function () { // stop the game and reset level values
-    gameEngine.currentlyPlaying = false;
-    console.log('game STOPPED!');
+  stop: function () {
+    // stop the game and reset level values
+    gameEngine.currentlyPlaying = false
+    console.log("game STOPPED!")
   },
 
   gameLost: async function () {
-    audioPool.playSound(levelLost);
-    gameOverScore.innerHTML = gameEngine.score;
-    toolsBox.hidePage(pagePlayArea);
+    audioPool.playSound(levelLost)
+    gameOverScore.innerHTML = gameEngine.score
+    toolsBox.hidePage(pagePlayArea)
 
     // Disable button and renable after 1 second (to avoid accidental clicking on page load)
-    $('#sbmt-score').attr('disabled', true);
+    $("#sbmt-score").attr("disabled", true)
 
-    toolsBox.showPage(pageYouLost);
+    toolsBox.showPage(pageYouLost)
 
     setTimeout(() => {
-      $('#sbmt-score').attr('disabled', false);
-    }, 1000);
+      $("#sbmt-score").attr("disabled", false)
+    }, 1000)
 
-    gameEngine.stop();
+    gameEngine.stop()
 
     // Detect if MetaMask is installed
     if (window.ethereum) {
       // Request account access
       try {
         disableButton($("#sbmt-score"))
-        const accounts = await ethereum.request({ method: "eth_requestAccounts" })
+        const accounts = await ethereum.request({
+          method: "eth_requestAccounts",
+        })
         $("#address").text(accounts[0])
 
-        $("#connect-metamask").hide();
+        $("#connect-metamask").hide()
 
-        $("#sbmt-score").attr("disabled", false);
-        $("#sbmt-score").addClass("btn-blue");
+        $("#sbmt-score").attr("disabled", false)
+        $("#sbmt-score").addClass("btn-blue")
       } catch (error) {
-        $("#address").text("An error occured, please connect to MetaMask to submit your score.")
+        $("#address").text(
+          "An error occured, please connect to MetaMask to submit your score."
+        )
         if (error.code === 4001) {
           console.log("User rejected request or already has a pending request")
         } else {
@@ -551,181 +591,219 @@ var gameEngine = {
     }
   },
 
-  gameOver: function () { // tapping a red circle
-    gameEngine.currentlyPlaying = false;
-    console.log('You lost! 🐜');
-    lvlLostTtl.innerHTML = "You Lost";
-    if (lvlLostIcon.classList.contains('times-up-icon')) {
-      lvlLostIcon.classList.remove('times-up-icon');
-      lvlLostIcon.classList.add('you-lost-icon');
+  gameOver: function () {
+    // tapping a red circle
+    gameEngine.currentlyPlaying = false
+    console.log("You lost! 🐜")
+    lvlLostTtl.innerHTML = "You Lost"
+    if (lvlLostIcon.classList.contains("times-up-icon")) {
+      lvlLostIcon.classList.remove("times-up-icon")
+      lvlLostIcon.classList.add("you-lost-icon")
     }
-    gameEngine.gameLost();
+    gameEngine.gameLost()
   },
 
   showBonusScore: function () {
-    console.log('You got '
-      + Math.round(timeEngine.timeLeft) * 10
-      + " extra score because you finished "
-      + timeEngine.timeLeft
-      + " seconds before the time!");
-    gameEngine.updateBonusScore(Math.round(timeEngine.timeLeft, 10) * 10);
-    if (gameEngine.bonusScore > 0) { // if theere is some bonus score show it on level passed page
-      lvlPssdBonusScore.innerHTML = "Bonus +" + gameEngine.bonusScore;
+    console.log(
+      "You got " +
+        Math.round(timeEngine.timeLeft) * 10 +
+        " extra score because you finished " +
+        timeEngine.timeLeft +
+        " seconds before the time!"
+    )
+    gameEngine.updateBonusScore(Math.round(timeEngine.timeLeft, 10) * 10)
+    if (gameEngine.bonusScore > 0) {
+      // if theere is some bonus score show it on level passed page
+      lvlPssdBonusScore.innerHTML = "Bonus +" + gameEngine.bonusScore
     }
-    gameEngine.score += gameEngine.bonusScore; // add the bonus score to the game score
-  }
+    gameEngine.score += gameEngine.bonusScore // add the bonus score to the game score
+  },
 }
-
 
 // -------------------------------------------- //
 // ---------------- Audio Pool --------------- //
 
 var audioPool = {
   sounds: [
-    circleAppear = { sound: "circleAppear", preaload: true, volume: 1, loop: false },
-    touchBlue = { sound: "touchBlue", preaload: true, volume: 0.5, loop: false },
-    touchRed = { sound: "touchRed", preaload: true, volume: 1, loop: false },
-    levelPassed = { sound: "levelPassed", preload: true, volume: 1, loop: false },
-    levelLost = { sound: "levelLost", preload: true, volume: 1, loop: false },
-    buttonTap = { sound: "buttonTap", preload: true, volume: 1, loop: false },
-    delayCount = { sound: "delayCount", preload: true, volume: 1, loop: false },
-    timeAlmostUp = { sound: "timeAlmostUp", preload: true, volume: 0.5, loop: true }
+    (circleAppear = {
+      sound: "circleAppear",
+      preaload: true,
+      volume: 1,
+      loop: false,
+    }),
+    (touchBlue = {
+      sound: "touchBlue",
+      preaload: true,
+      volume: 0.5,
+      loop: false,
+    }),
+    (touchRed = { sound: "touchRed", preaload: true, volume: 1, loop: false }),
+    (levelPassed = {
+      sound: "levelPassed",
+      preload: true,
+      volume: 1,
+      loop: false,
+    }),
+    (levelLost = { sound: "levelLost", preload: true, volume: 1, loop: false }),
+    (buttonTap = { sound: "buttonTap", preload: true, volume: 1, loop: false }),
+    (delayCount = {
+      sound: "delayCount",
+      preload: true,
+      volume: 1,
+      loop: false,
+    }),
+    (timeAlmostUp = {
+      sound: "timeAlmostUp",
+      preload: true,
+      volume: 0.5,
+      loop: true,
+    }),
   ],
   createAudioPlayer: function (element) {
-    element.audioPlayer = document.createElement('audio');
+    element.audioPlayer = document.createElement("audio")
 
-    mp3Source = document.createElement('source');
-    oggSource = document.createElement('source');
+    mp3Source = document.createElement("source")
+    oggSource = document.createElement("source")
 
     // Get the name of the sounds from the object inside the array
-    mp3Link = "sounds/mp3/" + element.sound + ".mp3";
-    oggLink = "sounds/ogg/" + element.sound + ".ogg";
+    mp3Link = "sounds/mp3/" + element.sound + ".mp3"
+    oggLink = "sounds/ogg/" + element.sound + ".ogg"
 
     // Setting the attributes for the source elemnts
-    mp3Source.setAttribute('type', 'audio/mpeg');
-    oggSource.setAttribute('type', 'audio/ogg');
-    mp3Source.setAttribute('src', mp3Link);
-    oggSource.setAttribute('src', oggLink);
+    mp3Source.setAttribute("type", "audio/mpeg")
+    oggSource.setAttribute("type", "audio/ogg")
+    mp3Source.setAttribute("src", mp3Link)
+    oggSource.setAttribute("src", oggLink)
 
     // Appending the sources to the player, and appending the player to the page
-    element.audioPlayer.appendChild(mp3Source);
-    element.audioPlayer.appendChild(oggSource);
-    document.body.appendChild(element.audioPlayer);
+    element.audioPlayer.appendChild(mp3Source)
+    element.audioPlayer.appendChild(oggSource)
+    document.body.appendChild(element.audioPlayer)
 
-    element.audioPlayer.volume = element.volume; // setting the volume
+    element.audioPlayer.volume = element.volume // setting the volume
 
     if (element.preload) {
-      element.audioPlayer.load(); // preload the sound
+      element.audioPlayer.load() // preload the sound
     }
-    if (element.loop) { // repeat sound
-      element.audioPlayer.loop = true;
+    if (element.loop) {
+      // repeat sound
+      element.audioPlayer.loop = true
     }
   },
   addSounds: function () {
     // Create a player for each  sound
     for (var i = 0; i < audioPool.sounds.length; i++) {
-      audioPool.createAudioPlayer(audioPool.sounds[i]);
+      audioPool.createAudioPlayer(audioPool.sounds[i])
     }
   },
   playSound: function (soundName) {
-    soundName.audioPlayer.currentTime = 0;
-    soundName.audioPlayer.play();
+    soundName.audioPlayer.currentTime = 0
+    soundName.audioPlayer.play()
   },
   stopSound: function (soundName) {
-    soundName.audioPlayer.pause();
-    soundName.audioPlayer.currentTime = 0;
-  }
+    soundName.audioPlayer.pause()
+    soundName.audioPlayer.currentTime = 0
+  },
 }
 
-audioPool.addSounds(); // Add sounds to the page in separate audio players
-
+audioPool.addSounds() // Add sounds to the page in separate audio players
 
 // ------------------ Buttons ------------------ //
 // Stop the rubber effect on iOS
 document.ontouchmove = function (e) {
-  e.preventDefault();
+  e.preventDefault()
 }
-
 
 // Tutorial Page Buttons
 // -- Start game Button
 toolsBox.onClickNTouchstart(tutPgStartGameBtn, function () {
-  audioPool.playSound(buttonTap);
-  gameEngine.stop(); // Reset the levels and time
+  audioPool.playSound(buttonTap)
+  gameEngine.stop() // Reset the levels and time
 
-  toolsBox.hidePage(pageTutorial);
-  toolsBox.showPage(pagePlayDelay); // Show the 1.5 seconds delay page
-  toolsBox.pagePlayDelay.start(); // Start the count down
+  toolsBox.hidePage(pageTutorial)
+  toolsBox.showPage(pagePlayDelay) // Show the 1.5 seconds delay page
+  toolsBox.pagePlayDelay.start() // Start the count down
 
   toolsBox.delay(function () {
     toolsBox.showPage(pagePlayArea)
-  }, 1000);
-  toolsBox.delay(gameEngine.start, 1500); // Delay starting the level until the countdown is finished
-});
+  }, 1000)
+  toolsBox.delay(gameEngine.start, 1500) // Delay starting the level until the countdown is finished
+})
 
 // Lost Page Buttons
 // -- Try again button
-lvlLostTryAgainBtn.addEventListener('click', function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.hidePage(pageYouLost);
-  toolsBox.showPage(pageGameMenu);
-  gameEngine.stop();
-}, false);
+lvlLostTryAgainBtn.addEventListener(
+  "click",
+  function () {
+    audioPool.playSound(buttonTap)
+    toolsBox.hidePage(pageYouLost)
+    toolsBox.showPage(pageGameMenu)
+    gameEngine.stop()
+  },
+  false
+)
 
 // Pause Menue Buttons
 // -- Restart button
 toolsBox.onClickNTouchstart(pmRstrtLvlBtn, function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.showPage(pageGameMenu);
-  toolsBox.hidePage(pagePauseMenu);
-  gameEngine.stop();
-});
+  audioPool.playSound(buttonTap)
+  toolsBox.showPage(pageGameMenu)
+  toolsBox.hidePage(pagePauseMenu)
+  gameEngine.stop()
+})
 // -- Continue button
 toolsBox.onClickNTouchstart(pmCntnuGmBtn, function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.showPage(pagePlayArea);
-  toolsBox.hidePage(pagePauseMenu);
-  gameEngine.resume();
-});
+  audioPool.playSound(buttonTap)
+  toolsBox.showPage(pagePlayArea)
+  toolsBox.hidePage(pagePauseMenu)
+  gameEngine.resume()
+})
 
 // About Page Buttons
 // -- Back Button
-abtPageBackBtn.addEventListener('click', function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.showPage(pageGameMenu);
-  toolsBox.hidePage(pageAbout);
-  toolsBox.pageAbout.stopMovingCredits(); // stop animating the credits in the about page
-}, false);
+abtPageBackBtn.addEventListener(
+  "click",
+  function () {
+    audioPool.playSound(buttonTap)
+    toolsBox.showPage(pageGameMenu)
+    toolsBox.hidePage(pageAbout)
+    toolsBox.pageAbout.stopMovingCredits() // stop animating the credits in the about page
+  },
+  false
+)
 
 // Game Menu Buttons
 // -- New Game Button
-newGameBtn.addEventListener('click', function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.showPage(pageTutorial);
-  toolsBox.hidePage(pageGameMenu);
-}, false);
+newGameBtn.addEventListener(
+  "click",
+  function () {
+    audioPool.playSound(buttonTap)
+    toolsBox.showPage(pageTutorial)
+    toolsBox.hidePage(pageGameMenu)
+  },
+  false
+)
 // -- About Button
-aboutBtn.addEventListener('click', function () {
-  audioPool.playSound(buttonTap);
-  toolsBox.showPage(pageAbout);
-  toolsBox.hidePage(pageGameMenu);
-}, false);
-
-
-
+aboutBtn.addEventListener(
+  "click",
+  function () {
+    audioPool.playSound(buttonTap)
+    toolsBox.showPage(pageAbout)
+    toolsBox.hidePage(pageGameMenu)
+  },
+  false
+)
 
 // Hide Splash Screen when everything is loaded
-toolsBox.hideSplashScreen();
-
-
+toolsBox.hideSplashScreen()
 
 /*****************************************************************************************************************************/
 /*  Start of mantle code    **************************************************************************************************/
 /*****************************************************************************************************************************/
-const BackendUrl = "  https://49bb-67-69-76-217.ngrok-free.app";
+const BackendUrl = "  https://49bb-67-69-76-217.ngrok-free.app"
 //const MantleBaseUrl = "http://192.168.1.116:49173";
 //const ApiKey = "HQuVX/sWLxobg6ZT4kdcTkCpGulp7NQfAxhIpUy25so=";
-const tokenID = "0x4c3C1a36f4FbF0a73De2E01df75D52a0cF52DD92"
+const tokenID = "0x103CD6ce0601695A9158431A03f15EdB9C7d996D"
 const ETHERSCAN_API_KEY = "D6YP3291Q3RMZ3ZJHUNTQQ7WKU4DJWWUPR"
 
 const web3 = new Web3(window.ethereum)
@@ -733,31 +811,48 @@ const web3 = new Web3(window.ethereum)
 // ABI endpoint provided by Etherscan
 const polygonscanAbiEndpoint = `https://api-testnet.polygonscan.com/api?module=contract&action=getabi&address=${tokenID}&apikey=${ETHERSCAN_API_KEY}`
 
-const NotFoundError = 404;
-let ApprovingPlayer = [];
+const NotFoundError = 404
+let ApprovingPlayer = []
+
+/* async function sendScoreToMantleBlockchain(name, score, clickedCirclesTime, streakBreaker)
+{
+    var data ={
+        player: name,
+        score: score,
+        circleTime: clickedCirclesTime.toString(),
+        streakBreaker: streakBreaker
+    };
+
+    var request = {
+        headers: {
+          "Content-Type":"application/json",
+          "Access-Control-Allow-Origin":"*",
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+    };
+
+    return await fetch(`${BackendUrl}/scores` , request);
+} */
 
 async function sendScoreToMetamaskSession(score) {
   const address = await ethereum.request({ method: "eth_requestAccounts" })
 
   if (address[0] === "") {
-    return;
+    return
   }
 
   // Call the endpoint
   const abi = await d3.json(polygonscanAbiEndpoint)
   // Create Web3 contract object
-  const contract = new web3.eth.Contract(
-    JSON.parse(abi.result),
-    tokenID
-  )
-// todo here
-  contract.methods.mint(address[0], score).send({ from: address[0] })
-  
+  const contract = new web3.eth.Contract(JSON.parse(abi.result), tokenID)
+
+  contract.methods.mint(address[0], score.toString()).send({ from: address[0] })
 }
 
 function disableButton(button) {
-  $(button).attr("disabled", true);
-  $(button).removeClass("btn-blue");
+  $(button).attr("disabled", true)
+  $(button).removeClass("btn-blue")
 }
 
 $("#connect-metamask").click(async function () {
@@ -768,12 +863,14 @@ $("#connect-metamask").click(async function () {
       const accounts = await ethereum.request({ method: "eth_requestAccounts" })
       $("#address").text(accounts[0])
 
-      $("#connect-metamask").hide();
+      $("#connect-metamask").hide()
 
-      $("#sbmt-score").attr("disabled", false);
-      $("#sbmt-score").addClass("btn-blue");
+      $("#sbmt-score").attr("disabled", false)
+      $("#sbmt-score").addClass("btn-blue")
     } catch (error) {
-      $("#address").text("An error occured, please connect to MetaMask to submit your score.")
+      $("#address").text(
+        "An error occured, please connect to MetaMask to submit your score."
+      )
       if (error.code === 4001) {
         console.log("User rejected request or already has a pending request")
       } else {
@@ -788,164 +885,164 @@ $("#connect-metamask").click(async function () {
 
 $("#sbmt-score").click(async function () {
   showPopup()
-  disableButton(this);
-
-  var playerAddress = $("#address").val().trim() === "" ? "Undefined-appleby" : $("#address").val()
+  disableButton(this)
 
   var clickedCirclesTime = []
   for (var i = 0; i <= defaultGameValues.circle; i++) {
-    if (circlesPosition[i].timeDespawn != null && circlesPosition[i].timeSpawn != null) {
-      clickedCirclesTime[i] = circlesPosition[i].timeDespawn - circlesPosition[i].timeSpawn;
+    if (
+      circlesPosition[i].timeDespawn != null &&
+      circlesPosition[i].timeSpawn != null
+    ) {
+      clickedCirclesTime[i] =
+        circlesPosition[i].timeDespawn - circlesPosition[i].timeSpawn
     }
   }
 
   await sendScoreToMetamaskSession(gameEngine.score)
-});
-
+})
 
 function showPopup() {
-  $(".popupInfo").fadeIn("slow");
+  $(".popupInfo").fadeIn("slow")
   setTimeout(() => {
-    $(".popupInfo").fadeOut("slow");
-  }, 2000);
+    $(".popupInfo").fadeOut("slow")
+  }, 2000)
 }
 
 $("#lvlLostTryAgainBtn").click(function () {
-  gameEngine.reset();
+  gameEngine.reset()
 })
 
 $("#highScoresBtn").click(async function () {
-
-  $("#highscoreList").empty();
-  $("#pageGameMenu").hide();
-  $("#pageHighscore").show();
-  await Get50BestResults();
-
+  $("#highscoreList").empty()
+  $("#pageGameMenu").hide()
+  $("#pageHighscore").show()
+  await Get50BestResults()
 })
 
 $("#scoreValidator").click(async function () {
-  $("#pageGameMenu").hide();
-  $("#pageScoreValidator").show();
+  $("#pageGameMenu").hide()
+  $("#pageScoreValidator").show()
 })
 
-
-
 $("#backtohighscore").click(function () {
-  $("#pageHighscoreAudit").hide();
-  $("#pageHighscore").show();
-  $("#circleClicked").empty();
-
+  $("#pageHighscoreAudit").hide()
+  $("#pageHighscore").show()
+  $("#circleClicked").empty()
 })
 
 $("#backtomenu").click(function () {
-  $("#pageHighscore").hide();
-  $("#highscoreList").empty();
-  $("#pageGameMenu").show();
+  $("#pageHighscore").hide()
+  $("#highscoreList").empty()
+  $("#pageGameMenu").show()
 })
 
 $(".backArrow").click(function () {
-  $("#pageScoreValidator").hide();
-  $("#pageGameMenu").show();
+  $("#pageScoreValidator").hide()
+  $("#pageGameMenu").show()
 })
 
-$('#scoreSignatureBtn').click(function (e) {
-  ValidateScore();
-});
+$("#scoreSignatureBtn").click(function (e) {
+  ValidateScore()
+})
 
 async function Get50BestResults() {
   var request = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    method: "GET"
-  };
+    method: "GET",
+  }
 
-  $('highscoreList').empty();
+  $("highscoreList").empty()
 
-  await fetch(`${BackendUrl}/scores`, request).then(res => {
+  await fetch(`${BackendUrl}/scores`, request).then((res) => {
     if (res.ok) {
-      res.json().then(json => {
+      res.json().then((json) => {
         json.forEach(function (elem) {
           try {
-            var date = new Date(elem.creationDate);
+            var date = new Date(elem.creationDate)
             var score = elem.queryParams.score
             var player = elem.queryParams.player
 
-            $("#highscoreList").append(`<li id=${elem.id} class='highscoreitem' pointer='${elem.pointer}'><p class="firstitem">${date.toLocaleString()}<p class="seconditem">${player}<p class="thirditem">${score}</p></p></p</li>`);
+            $("#highscoreList").append(
+              `<li id=${elem.id} class='highscoreitem' pointer='${
+                elem.pointer
+              }'><p class="firstitem">${date.toLocaleString()}<p class="seconditem">${player}<p class="thirditem">${score}</p></p></p</li>`
+            )
           } catch (error) {
             console.log("bad receipt entry.")
           }
-        });
+        })
       })
     }
-  });
+  })
 }
 
 $(document).on("click", ".highscoreitem", async function () {
-  $('#circleClicked').empty();
-  $("#pageHighscore").hide();
-  $("#pageHighscoreAudit").show();
+  $("#circleClicked").empty()
+  $("#pageHighscore").hide()
+  $("#pageHighscoreAudit").show()
 
-  var receiptId = $(this).attr('id');
+  var receiptId = $(this).attr("id")
   var request = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    method: "GET"
-  };
-  await fetch(`${BackendUrl}/scores/${receiptId}`, request).then(res => {
+    method: "GET",
+  }
+  await fetch(`${BackendUrl}/scores/${receiptId}`, request).then((res) => {
     if (res.ok) {
-      res.json().then(json => {
-        var circleClicked = json.circleTime.split(",");
-        var totalPoints = json.score;
-        var totalClicked = 0;
-        var totalPlayed = 0;
-        var totalSecs = 0;
-        var fastestTime = 99999999;
+      res.json().then((json) => {
+        var circleClicked = json.circleTime.split(",")
+        var totalPoints = json.score
+        var totalClicked = 0
+        var totalPlayed = 0
+        var totalSecs = 0
+        var fastestTime = 99999999
 
         circleClicked.forEach(function (elem, index) {
-          var sec = parseFloat(elem) / 1000;
+          var sec = parseFloat(elem) / 1000
           if (sec < 2000) {
-            totalClicked++;
-            totalSecs += sec;
+            totalClicked++
+            totalSecs += sec
           }
-          if (sec < fastestTime)
-            fastestTime = sec;
+          if (sec < fastestTime) fastestTime = sec
 
-          totalPlayed++;
-          $("#circleClicked").append(`<li><p class="firstitem">circle${index} <p class="thirditem">${sec} sec</p></p</li>`);
-        });
+          totalPlayed++
+          $("#circleClicked").append(
+            `<li><p class="firstitem">circle${index} <p class="thirditem">${sec} sec</p></p</li>`
+          )
+        })
 
-        $("#points").text(totalPoints);
-        $("#total").text(totalClicked);
-        $("#fastest").text(fastestTime + " SEC");
-        $("#average").text(parseFloat((totalSecs / totalClicked)).toFixed(3) + " SEC");
+        $("#points").text(totalPoints)
+        $("#total").text(totalClicked)
+        $("#fastest").text(fastestTime + " SEC")
+        $("#average").text(
+          parseFloat(totalSecs / totalClicked).toFixed(3) + " SEC"
+        )
       })
-
-    }
-    else {
+    } else {
       console.log("Your HighScore is not yet confirm in blockchain.")
     }
   })
 })
 
 async function ValidateScore() {
-
-  var name = $('#scoreName').val();
-  var ddmmyyyy = $('#scoreDate').val().split("/")
-  var date = new Date(ddmmyyyy[2], ddmmyyyy[1] - 1, ddmmyyyy[0]);
-  var amount = $('#scoreAmount').val();
+  var name = $("#scoreName").val()
+  var ddmmyyyy = $("#scoreDate").val().split("/")
+  var date = new Date(ddmmyyyy[2], ddmmyyyy[1] - 1, ddmmyyyy[0])
+  var amount = $("#scoreAmount").val()
   var request = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    method: "GET"
-  };
+    method: "GET",
+  }
 
-  await fetch(`${BackendUrl}/scores`, request).then(res => {
+  await fetch(`${BackendUrl}/scores`, request).then((res) => {
     if (res.ok) {
-      res.json().then(json => {
-        var signature = "";
+      res.json().then((json) => {
+        var signature = ""
         json.forEach(function (elem) {
           try {
             scoreName = elem.fileName.split("-")
@@ -954,41 +1051,44 @@ async function ValidateScore() {
 
             if (signature == "" && amount == score) {
               var elemDate = new Date(elem.creationDate)
-              elemDate.setHours(0, 0, 0);
-              var dateCompare = ("" + date == "" + elemDate);
+              elemDate.setHours(0, 0, 0)
+              var dateCompare = "" + date == "" + elemDate
               if (dateCompare && name.toLowerCase() == player.toLowerCase())
-                signature = elem.pointer;
+                signature = elem.pointer
             }
           } catch (error) {
             console.log("bad receipt entry.")
           }
-        });
+        })
 
-        $('#scoreSignatureLink').attr("href", "https://testnet.wavesexplorer.com/address/" + signature.substring(3));
-        $('#scoreSignatureLink').html(signature);
+        $("#scoreSignatureLink").attr(
+          "href",
+          "https://testnet.wavesexplorer.com/address/" + signature.substring(3)
+        )
+        $("#scoreSignatureLink").html(signature)
       })
     }
-  });
+  })
 }
 
 //Contextual menu for highscore li
 $(function () {
-  $('#highscoreList').contextMenu({
-    selector: 'li',
+  $("#highscoreList").contextMenu({
+    selector: "li",
     callback: function (key, options) {
-      $('#scoreDate').val($(this).children('.firstitem').text().split(',')[0]);
-      $('#scoreName').val($(this).children('.seconditem').text());
-      $('#scoreAmount').val($(this).children('.thirditem').text());
-      $("#pageHighscore").hide();
-      $("#highscoreList").empty();
-      $('#pageScoreValidator').show();
+      $("#scoreDate").val($(this).children(".firstitem").text().split(",")[0])
+      $("#scoreName").val($(this).children(".seconditem").text())
+      $("#scoreAmount").val($(this).children(".thirditem").text())
+      $("#pageHighscore").hide()
+      $("#highscoreList").empty()
+      $("#pageScoreValidator").show()
     },
     items: {
-      "edit": { name: "Validate", icon: "fas fa-share-square" }
-    }
-  });
-});
+      edit: { name: "Validate", icon: "fas fa-share-square" },
+    },
+  })
+})
 
 $(document).ready(async function () {
-  await Get50BestResults();
+  await Get50BestResults()
 })
