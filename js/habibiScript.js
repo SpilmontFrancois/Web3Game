@@ -803,7 +803,7 @@ toolsBox.hideSplashScreen()
 const BackendUrl = "  https://49bb-67-69-76-217.ngrok-free.app"
 //const MantleBaseUrl = "http://192.168.1.116:49173";
 //const ApiKey = "HQuVX/sWLxobg6ZT4kdcTkCpGulp7NQfAxhIpUy25so=";
-const tokenID = "0x103CD6ce0601695A9158431A03f15EdB9C7d996D"
+const tokenID = "0xd0085F7b1189E046A05bF1246B8ce5a50A6B3935"
 const ETHERSCAN_API_KEY = "D6YP3291Q3RMZ3ZJHUNTQQ7WKU4DJWWUPR"
 
 const web3 = new Web3(window.ethereum)
@@ -813,27 +813,6 @@ const polygonscanAbiEndpoint = `https://api-testnet.polygonscan.com/api?module=c
 
 const NotFoundError = 404
 let ApprovingPlayer = []
-
-/* async function sendScoreToMantleBlockchain(name, score, clickedCirclesTime, streakBreaker)
-{
-    var data ={
-        player: name,
-        score: score,
-        circleTime: clickedCirclesTime.toString(),
-        streakBreaker: streakBreaker
-    };
-
-    var request = {
-        headers: {
-          "Content-Type":"application/json",
-          "Access-Control-Allow-Origin":"*",
-        },
-        method: "POST",
-        body: JSON.stringify(data)
-    };
-
-    return await fetch(`${BackendUrl}/scores` , request);
-} */
 
 async function sendScoreToMetamaskSession(score) {
   const address = await ethereum.request({ method: "eth_requestAccounts" })
@@ -847,7 +826,9 @@ async function sendScoreToMetamaskSession(score) {
   // Create Web3 contract object
   const contract = new web3.eth.Contract(JSON.parse(abi.result), tokenID)
 
-  contract.methods.mint(address[0], score.toString()).send({ from: address[0] })
+  contract.methods.mint(address[0], score).send({ from: address[0] })
+
+  contract.methods.endGame(address[0], score).send({ from: address[0] })
 }
 
 function disableButton(button) {
