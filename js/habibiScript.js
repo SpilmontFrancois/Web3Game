@@ -726,10 +726,9 @@ const BackendUrl = "  https://49bb-67-69-76-217.ngrok-free.app";
 //const MantleBaseUrl = "http://192.168.1.116:49173";
 //const ApiKey = "HQuVX/sWLxobg6ZT4kdcTkCpGulp7NQfAxhIpUy25so=";
 const tokenID = "0x4c3C1a36f4FbF0a73De2E01df75D52a0cF52DD92"
-const QUICKNODE_URL = "https://boldest-icy-county.matic-testnet.quiknode.pro/357efaa90ba836908d3897fe604e5162e187b272"
 const ETHERSCAN_API_KEY = "D6YP3291Q3RMZ3ZJHUNTQQ7WKU4DJWWUPR"
 
-const web3 = new Web3(new Web3.providers.HttpProvider(QUICKNODE_URL))
+const web3 = new Web3(window.ethereum)
 
 // ABI endpoint provided by Etherscan
 const polygonscanAbiEndpoint = `https://api-testnet.polygonscan.com/api?module=contract&action=getabi&address=${tokenID}&apikey=${ETHERSCAN_API_KEY}`
@@ -752,7 +751,7 @@ async function sendScoreToMetamaskSession(score) {
     tokenID
   )
 // todo here
-  // contract.methods.mint(address[0], score).send({ from: address[0] })
+  contract.methods.mint(address[0], score).send({ from: address[0] })
   
 }
 
