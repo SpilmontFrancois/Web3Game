@@ -606,10 +606,10 @@ var gameEngine = {
   showBonusScore: function () {
     console.log(
       "You got " +
-      Math.round(timeEngine.timeLeft) * 10 +
-      " extra score because you finished " +
-      timeEngine.timeLeft +
-      " seconds before the time!"
+        Math.round(timeEngine.timeLeft) * 10 +
+        " extra score because you finished " +
+        timeEngine.timeLeft +
+        " seconds before the time!"
     )
     gameEngine.updateBonusScore(Math.round(timeEngine.timeLeft, 10) * 10)
     if (gameEngine.bonusScore > 0) {
@@ -936,31 +936,39 @@ async function Get50BestResults() {
 
   $("highscoreList").empty()
 
-  const START_BLOCK = "0";
-  const END_BLOCK = "99999999";
-  const ENDGAME_METHOD_ID = "0xab747b64";
+  const START_BLOCK = "0"
+  const END_BLOCK = "99999999"
+  const ENDGAME_METHOD_ID = "0xab747b64"
 
-  await fetch(`https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${tokenID}&startblock=${START_BLOCK}&endblock=${END_BLOCK}&sort=asc&apikey=${ETHERSCAN_API_KEY}`, request).then((res) => {
+  await fetch(
+    `https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${tokenID}&startblock=${START_BLOCK}&endblock=${END_BLOCK}&sort=asc&apikey=${ETHERSCAN_API_KEY}`,
+    request
+  ).then((res) => {
     if (res.ok) {
       res.json().then((json) => {
-        json.result.filter((e) => e.methodId === ENDGAME_METHOD_ID).sort(
-          (a, b) => parseInt(b.input.slice(-32), 16) - parseInt(a.input.slice(-32), 16)
-        ).forEach(function (elem) {
-          console.log(json)
-          try {
-            const date = new Date(elem.timeStamp * 1000)
-            var score = elem.input.slice(-32)
-            score = parseInt(score, 16)
-            const from = elem.from.slice(0, 6) + "..."
+        json.result
+          .filter((e) => e.methodId === ENDGAME_METHOD_ID)
+          .sort(
+            (a, b) =>
+              parseInt(b.input.slice(-32), 16) -
+              parseInt(a.input.slice(-32), 16)
+          )
+          .forEach(function (elem) {
+            try {
+              const date = new Date(elem.timeStamp * 1000)
+              var score = elem.input.slice(-32)
+              score = parseInt(score, 16)
+              const from = elem.from.slice(0, 6) + "..."
 
-            $("#highscoreList").append(
-              `<li id=${elem.id} class='highscoreitem' pointer='${elem.pointer
-              }'><p class="firstitem">${date.toLocaleString()}<p class="seconditem">${score}<p class="thirditem">${from}</p></p></p</li>`
-            )
-          } catch (error) {
-            console.log("bad receipt entry.")
-          }
-        })
+              $("#highscoreList").append(
+                `<li id=${elem.id} class='highscoreitem' pointer='${
+                  elem.pointer
+                }'><p class="firstitem">${date.toLocaleString()}<p class="seconditem">${score}<p class="thirditem">${from}</p></p></p</li>`
+              )
+            } catch (error) {
+              console.log("bad receipt entry.")
+            }
+          })
       })
     }
   })
